@@ -1,0 +1,367 @@
+
+  :root{
+    --paper: #F4F6EE;
+    --paper-line: #C9D6BE;
+    --ink: #1F2E23;
+    --ink-soft: #4A5C4E;
+    --stamp: #B33A3A;
+    --money: #2F6B4F;
+    --money-dark: #1E4A35;
+    --gold: #A9862F;
+    --card-bg: #FBFBF6;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 37px,
+      var(--paper-line) 38px
+    );
+    color: var(--ink);
+    font-family: 'Spectral', serif;
+    line-height: 1.6;
+  }
+
+  a{ color: var(--money-dark); }
+
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.site{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 0;
+    border-bottom: 4px double var(--gold);
+  }
+  header.site .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .brand h1{
+    font-family:'Zilla Slab', serif;
+    font-weight:700;
+    font-size:1.7rem;
+    margin:0;
+    letter-spacing:0.5px;
+  }
+  .brand span.tag{
+    font-family:'Special Elite', monospace;
+    font-size:0.72rem;
+    color: #C9D6BE;
+    letter-spacing: 1px;
+  }
+  nav.main a{
+    color: var(--paper);
+    text-decoration:none;
+    margin-left: 20px;
+    font-family:'Zilla Slab', serif;
+    font-size:0.95rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav.main a:hover{ border-bottom-color: var(--gold); }
+
+  /* ---------- HERO / FEATURED ENTRY ---------- */
+  .hero{
+    padding: 48px 0 20px;
+  }
+  .hero-entry{
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    border-left: 6px solid var(--money);
+    padding: 32px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items:center;
+  }
+  .hero-entry .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    color: var(--stamp);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+  }
+  .hero-entry h2{
+    font-family:'Zilla Slab', serif;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height:1.2;
+    margin: 0 0 14px;
+  }
+  .hero-entry p.excerpt{
+    margin:0 0 16px;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+  .hero-figure{
+    text-align:center;
+    font-family:'Zilla Slab', serif;
+  }
+  .hero-figure .amount{
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--money-dark);
+    line-height:1;
+  }
+  .hero-figure .amount-label{
+    font-family:'Special Elite', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display:block;
+    margin-top: 6px;
+    max-width: 14ch;
+  }
+  .cta-link{
+    display:inline-block;
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    color: var(--money-dark);
+    text-decoration:none;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* ---------- AD SLOTS ---------- */
+  .ad-slot{
+    border: 1px dashed #9AA893;
+    background: repeating-linear-gradient(
+      45deg, rgba(154,168,147,0.08), rgba(154,168,147,0.08) 10px,
+      transparent 10px, transparent 20px
+    );
+    color: var(--ink-soft);
+    text-align:center;
+    padding: 18px;
+    font-family:'Special Elite', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+  .ad-slot.small{ padding: 14px; margin: 20px 0; }
+
+  /* ---------- LAYOUT: POSTS + SIDEBAR ---------- */
+  .content-grid{
+    display:grid;
+    grid-template-columns: 1fr 300px;
+    gap: 36px;
+    padding: 10px 0 60px;
+  }
+  @media (max-width: 760px){
+    .content-grid{ grid-template-columns: 1fr; }
+    .hero-entry{ grid-template-columns: 1fr; text-align:left; }
+  }
+
+  .section-title{
+    font-family:'Zilla Slab', serif;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--ink-soft);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+  }
+
+  /* Ledger-row post entries */
+  .entry-row{
+    display:grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 16px;
+    align-items:start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .entry-row .date{
+    font-family:'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    padding-top: 4px;
+  }
+  .entry-row h3{
+    font-family:'Zilla Slab', serif;
+    font-size: 1.15rem;
+    margin: 0 0 6px;
+  }
+  .entry-row h3 a{ text-decoration:none; color: var(--ink); }
+  .entry-row h3 a:hover{ color: var(--money-dark); }
+  .entry-row .tag{
+    display:inline-block;
+    font-family:'Special Elite', monospace;
+    font-size: 0.65rem;
+    color: var(--money-dark);
+    background: rgba(47,107,79,0.1);
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .entry-row p{
+    margin:0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .entry-row .read{
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    color: var(--money-dark);
+    text-decoration:none;
+    white-space:nowrap;
+    padding-top: 4px;
+  }
+  .entry-row.featured{
+    position: relative;
+  }
+  .stamp-badge{
+    position:absolute;
+    top: 14px;
+    right: 0;
+    font-family:'Special Elite', monospace;
+    font-size: 0.65rem;
+    color: var(--stamp);
+    border: 2px solid var(--stamp);
+    padding: 3px 8px;
+    border-radius: 50%;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .widget{
+    background: var(--card-bg);
+    border: 1px solid var(--paper-line);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .widget h4{
+    font-family:'Zilla Slab', serif;
+    font-size: 1rem;
+    margin: 0 0 12px;
+    border-bottom: 1px solid var(--paper-line);
+    padding-bottom: 8px;
+  }
+  .balance-line{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Special Elite', monospace;
+    font-size: 0.8rem;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--paper-line);
+  }
+  .balance-line strong{ color: var(--money-dark); }
+
+  .newsletter input[type=email]{
+    width:100%;
+    padding: 9px 10px;
+    border: 1px solid var(--paper-line);
+    background: var(--paper);
+    font-family: 'Spectral', serif;
+    margin-bottom: 10px;
+  }
+  .newsletter button{
+    width:100%;
+    padding: 10px;
+    background: var(--money-dark);
+    color: var(--paper);
+    border:none;
+    font-family:'Zilla Slab', serif;
+    font-weight:600;
+    cursor:pointer;
+    letter-spacing: 0.5px;
+  }
+  .newsletter button:hover{ background: var(--money); }
+  .newsletter small{ color: var(--ink-soft); font-size:0.72rem; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--ink);
+    color: var(--paper-line);
+    padding: 28px 0;
+    font-size: 0.85rem;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer a{ color: var(--paper); }
+
+  :focus-visible{
+    outline: 2px solid var(--stamp);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ---------- ARTICLE PAGE ---------- */
+  .article-wrap{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 24px 70px;
+  }
+  .article-wrap .eyebrow{
+    font-family:'Special Elite', monospace;
+    font-size: 0.78rem;
+    color: var(--stamp);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+  }
+  .article-wrap h1{
+    font-family:'Zilla Slab', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+  .article-wrap .meta{
+    font-family:'Special Elite', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin-bottom: 30px;
+  }
+  .article-wrap p{
+    margin: 0 0 18px;
+    color: var(--ink);
+  }
+  .article-wrap h2{
+    font-family:'Zilla Slab', serif;
+    font-size: 1.3rem;
+    margin: 32px 0 14px;
+  }
+  .article-wrap .back-link{
+    display:inline-block;
+    margin-bottom: 30px;
+    font-family:'Zilla Slab', serif;
+    text-decoration:none;
+    color: var(--money-dark);
+    border-bottom: 2px solid var(--gold);
+  }
+  .article-wrap blockquote{
+    border-left: 4px solid var(--money);
+    margin: 24px 0;
+    padding: 8px 20px;
+    background: var(--card-bg);
+    font-style: italic;
+    color: var(--ink-soft);
+  }
